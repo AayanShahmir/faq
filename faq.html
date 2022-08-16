@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FAQ ACCORDION </title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body{
+        font-family: 'Open Sans', sans-serif;
+        color: #fff;
+        background-color: #3c4053;
+    }
+    
+    .title{
+        font-size: 50px;
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 40px;
+        text-decoration: underline 4px;
+    }
+    
+    
+    .questions-container{
+        max-width: 800px;
+        margin: 0 auto;
+    
+    }
+    
+    .question{
+        border-bottom: 1px solid #fff;
+        
+    }
+    .question button{
+        width: 100%;
+        background-color: #3c4053;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 15px;
+        border:none;
+        outline: none;
+        font-size: 22px;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .question p{
+        font-size: 22px;
+        max-height: 0;
+        opacity: 0;
+        line-height: 1.5;
+        overflow: hidden;
+        transition: all 0.6s ease;
+    }
+    .d-arrow{
+        transition: transform 0.5s ease-in ;
+        color: #fff;
+    }
+    
+    .question p.show{
+        max-height: 200px; 
+        opacity: 1;
+        padding:0px 15px 30px 15px;
+    }
+    .question button .d-arrow.rotate{
+        transform: rotate(180deg);
+    }
+    a.btn-rounded {
+        display: inline-block;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 600;
+        background-color: #222222;
+        color: #ffffff;
+        border: 2px solid #222222;
+        transition: .3s;
+        border-radius: 30px;
+        padding: 15px 20px;
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        z-index: 9;
+    }
+    
+    a.btn-rounded:hover {
+        background-color: transparent;
+        color: #222222;
+    }
+</style>
+<body>
+
+<section>
+    <h1 class="title">FAQ's</h1>
+
+    <div class="questions-container">
+        <div class="question">
+            <button>
+                <span>What's the best way to study JavaScript?</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p>Start With An Online Course.An online tutorial is probably the best way to learn JavaScript.If you're serious about learning fast, efficiently and without missing any important information, then you should consider enrolling in an online course.</p>
+        </div>
+
+        <div class="question">
+            <button>
+                <span>What should I learn after JavaScript / js?</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p>I suggest taking a look at Typescript and learning some popular frontend framework (Angular, React, Vue). If you are interested in backend, take a look at Node. js.</p>
+        </div>
+
+        <div class="question">
+            <button>
+                <span>Can I get a job after learning JavaScript?</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi laboriosam ea odit voluptate culpa quas explicabo.</p>
+        </div>
+
+        <div class="question">
+            <button>
+                <span>How long will it take to learn JavaScript?</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis pariatur a maiores minus tempore magni nam beatae dolores omnis.</p>
+        </div>
+    </div>
+    <a href="new.php" class="btn-rounded">Suggestions</a>
+</section>
+
+<script>
+    const buttons = document.querySelectorAll('button');
+
+buttons.forEach( button =>{
+    button.addEventListener('click',()=>{
+        const faq = button.nextElementSibling;
+        const icon = button.children[1];
+
+        faq.classList.toggle('show');
+        icon.classList.toggle('rotate');
+    })
+} )
+</script>
+</body>
+</html>
